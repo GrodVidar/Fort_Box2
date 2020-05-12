@@ -1,0 +1,60 @@
+body{
+  background-image: url("./img/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: 2000px 1500px;
+}
+
+h1{
+  font-family: cursive;
+  font-size: 180%;
+  text-align: center;
+  color: #990000;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/static/Orbitron-Bold.ttf") format('ttf');
+}
+
+#outer{
+background-color: #000;
+margin-left: 50px;
+height: 100px;
+width: 380px;
+margin-top: 70px;
+padding-top: 15px;
+}
+
+#inner{
+  background-color: #1611FD;
+  margin-left: 15px;
+  width: 350px;
+  height:70px;
+  padding-top: 10px;
+}
+
+form{
+  text-align: left;
+  margin-left: 10%;
+}
+
+label{
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 150%;
+  letter-spacing: 2px;
+}
+
+input[type="number"]{
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 150%;
+  width:250px;
+  height:30px;
+  background-color: #1611FD;
+}
+#keypad{
+  margin-top: 200px;
+  margin-left: 550px;
+  height: 360px;
+  width: 300px;
+  background-image: url('./img/keyPadxd.png');
+}

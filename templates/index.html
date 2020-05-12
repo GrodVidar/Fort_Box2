@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fort_Box2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="shortcut icon" href="about:blank">
+</head>
+<body>
+    <h1>FortBox!</h1>
+    <div id="outer">
+        <div id="inner">
+            <form action="" method="post" role="form" autocomplete="off">
+                <label id="entry">Pass code: </label>
+                <input type="number" name="code" required autofocus max="9999" min="0" placeholder="0000-9999">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
