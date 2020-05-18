@@ -7,6 +7,7 @@ import Keypad
 from time import sleep, strftime
 from datetime import datetime
 
+from subprocess import call
 ROWS = 4
 COLS = 4
 keys = ['1', '2', '3', 'A',
@@ -16,10 +17,6 @@ keys = ['1', '2', '3', 'A',
 
 row_pins = [12, 16, 18, 22]
 col_pins = [19, 15, 13, 11]
-
-with open('key.txt', 'r') as file:
-    code = str(file.readline().rstrip())
-    print(code)
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7, GPIO.OUT)
@@ -68,10 +65,18 @@ def loop():
                     idle = False
                 elif key == '#':
                     lock_servo()
+                elif key == 'A':
+                    destroy()
+                    call("sudo poweroff", shell=True)
             sleep(1)
         lcd.clear()
         active = True
+        run_once = True
         while active:
+            if run_once:
+                with open('text.txt', 'r') as f:
+                    code = f.readline().rstrip()
+                run_once = False
             lcd.setCursor(0, 0)
             lcd.message("Enter Code:\n")
             message = ''
@@ -91,9 +96,13 @@ def loop():
                 lcd.setCursor(0, 0)
                 lcd.message("Opening!")
                 open_servo()
-                sleep(4)
+                sleep(1)
                 active = False
             else:
+                lcd.clear()
+                lcd.setCursor(0, 0)
+                lcd.message("WRONG CODE!!!")
+                sleep(1)
                 lcd.clear()
 
 
